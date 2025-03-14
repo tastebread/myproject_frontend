@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/context/AuthContext"; //  경로 수정
+import Navbar from "@/components/Navbar"; //  네비게이션 바 추가
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <AuthProvider> {/* 전역 로그인 상태 관리 */}
+          <Navbar /> {/* 네비게이션 추가 */}
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
