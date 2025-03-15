@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext"; //  경로 수정
 import Navbar from "@/components/Navbar"; //  네비게이션 바 추가
+import Link from "next/link"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

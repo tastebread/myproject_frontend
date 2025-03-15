@@ -11,6 +11,7 @@ interface Post {
     title: string;
     content: string;
     likes_count: number;
+    bookmarks_count: number;
     author_id: number;
 }
 
@@ -46,6 +47,24 @@ export default function PostsPage() {
       );
     } catch (error) {
       console.error(" 좋아요 실패:", error);
+    }
+  }
+  
+  async function handleBookmark(postId: number) {
+    if (!auth?.token) return alert("로그인이 필요합니다.");
+
+    try {
+      const res = await api.post(`/posts/${postId}/bookmark/`, {}, {
+        headers: { Authorization: `Bearer ${auth.token}` },
+      });
+
+      setPosts((prevPosts) =>
+        prevPosts.map((post) =>
+          post.id === postId ? { ...post, bookmarks_count: res.data.bookmarks_count } : post
+        )
+      );
+    } catch (error) {
+      console.error("북마크 실패:", error);
     }
   }
 
@@ -84,6 +103,14 @@ export default function PostsPage() {
               >
                 ❤️ {post.likes_count}
               </button>
+
+              <button
+                onClick={() => handleBookmark(post.id)}
+                className="bg-yellow-500 text-white px-3 py-1 rounded"
+              >
+                ⭐ {post.bookmarks_count}
+              </button>
+
               {auth?.user?.id && auth?.user.id === post.author_id && (
                 <button
                   onClick={() => handleDelete(post.id)}

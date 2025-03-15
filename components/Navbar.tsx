@@ -22,12 +22,17 @@ export default function Navbar() {
                 <Link href="/posts">
                     <span className="bg-gray-500 px-4 py-2 rounded cursor-pointer text-white">
                         게시글 목록
-                        </span>
+                      </span>
                 </Link>
                 <Link href="/posts/new">
                     <span className="bg-green-500 px-4 py-2 rounded cursor-pointer">
                         글쓰기
                     </span>
+                </Link>
+                <Link href="/mypage">
+                  <span className="bg-yellow-500 px-4 py-2 rounded cursor-pointer">
+                    마이페이지
+                  </span>
                 </Link>
               <span className="text-sm">👤 {user.username}</span>
               <button onClick={logout} className="bg-red-500 px-4 py-2 rounded">
