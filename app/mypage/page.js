@@ -27,6 +27,7 @@ export default function MyPage() {
         ]);
         setMyPosts(posts);
         setMyComments(comments);
+        console.log("댓글 데이터:", comments);
         setLikedPosts(liked);
         setBookmarkedPosts(bookmarked);
       } catch (error) {
