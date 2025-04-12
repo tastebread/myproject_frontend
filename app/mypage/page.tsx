@@ -10,7 +10,7 @@ export default function MyPage() {
   const router = useRouter();
   const [posts, setPosts] = useState([]);
   const [comments, setComments] = useState([]);
-  const [loading, setLoading] = useState(true); // 로딩 상태 추가
+  const [loading, setLoading] = useState(true); // 로딩 상태 추가#####
 
   // 로그인되지 않은 경우 로그인 페이지로 이동
   useEffect(() => {
