@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/context/AuthContext"; // AuthContext 가져오기
 import { useRouter } from "next/navigation";
 import { api } from "@/utils/api";
-####
+
 export default function MyPage() {
   const auth = useContext(AuthContext);
   const router = useRouter();
